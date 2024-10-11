@@ -10,22 +10,11 @@ import { useState } from "react"
 import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.actions"
+import { FormFieldType } from "./PatientForm"
 
 
 
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
-
-
-
-const PatientForm = () => {
+const RegisterForm = ({user}:{user: User}) => {
   const router = useRouter()
 const [isLoading, setIsLoading] = useState(false)
 
@@ -73,26 +62,10 @@ const [isLoading, setIsLoading] = useState(false)
         iconAlt="User Icon"
       />
 
-      <CustomFormField 
-        fieldType={FormFieldType.INPUT}
-        control={form.control}
-        name="email"
-        label="Email"
-        placeholder="Tommy.Oliver@gmail.com"
-        iconSrc= "/assets/icons/email.svg"
-        iconAlt="Email Icon"
-      />
-
-      <CustomFormField 
-        fieldType={FormFieldType.PHONE_INPUT}
-        control={form.control}
-        name="phone"
-        label="Phone Number"
-        placeholder="(555) 123-4567"
-      />
-        <SubmitButton isLoading={ isLoading } className="">Get Started</SubmitButton>
+        <SubmitButton className="" isLoading={ isLoading }>Get Started</SubmitButton>
       </form>
     </Form>
   )
 }
-export default PatientForm
+
+export default RegisterForm
