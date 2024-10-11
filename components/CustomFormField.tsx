@@ -33,7 +33,7 @@ interface CustomProps {
 }
 
 const RenderField = ({field, props}: {field:any;  props: CustomProps }) => {
-  const { fieldType, iconSrc, iconAlt, placeholder } = props;
+  const { fieldType, iconSrc, iconAlt, placeholder, showTimeSelect, dateFormat } = props;
 
  switch (fieldType) {
     case FormFieldType.INPUT:
@@ -84,7 +84,11 @@ const RenderField = ({field, props}: {field:any;  props: CustomProps }) => {
                   className="ml-2"
                 />
            <FormControl>
-           <DatePicker selected={field.value} onChange={(date) => field.onChange(date)} />
+           <DatePicker selected={field.value} onChange={(date) => field.onChange(date)}
+           dateFormat={dateFormat ?? 'MM/dd/yyyy'}
+           showTimeSelect = {showTimeSelect ?? false}
+           timeInputLabel="Time:"
+           />
        </FormControl>
             </div>
           )
