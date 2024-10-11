@@ -109,11 +109,11 @@ const RegisterForm = ({ user }: { user: User }) => {
                                     defaultValue={field.value}>
                                     {GenderOptions.map((option)=>(
                                         <div className="radio-group" key={option}>
-                                            <RadioGroupItem value={option} id={option} 
-                                            <Label>
+                                            <RadioGroupItem value={option} id={option} />
+                                            <Label htmlFor={option} className="cursor-pointer">
                                             {option}
                                             </Label>
-                                            />
+                                     
                                         </div>
                                     ))}
                                 </RadioGroup>
